@@ -27,7 +27,7 @@ You should see no errors and an `out/` folder with compiled JS.
 1. Open this repo in VS Code (the RenderFlow folder as the root).
 2. Press **F5** (or **Run > Start Debugging**).
 3. A new VS Code window opens titled **Extension Development Host**.
-4. In that window, open the **same repo folder** (File > Open Folder → choose the RenderFlow directory). The extension only sees events for files in the opened workspace.
+4. **If the new window has no folder or a different folder:** the extension only sees events for files in the opened workspace, so the workspace must be the RenderFlow repo. Use **File > Open…** (or **File > Open Folder…**), then in the file picker go to your RenderFlow repo (e.g. `Documents/nerd/RenderFlow`) and select the **RenderFlow** folder. On macOS you can also use **File > Open Recent** if the repo is listed. (Often the Extension Development Host already has the same folder open—then skip this step.)
 5. Open the Command Palette: **Ctrl+Shift+P** (Windows/Linux) or **Cmd+Shift+P** (macOS).
 6. Run **“Render Flow: Start”**.
 7. You should see a message: **“Render Flow listening on port 8765.”**
