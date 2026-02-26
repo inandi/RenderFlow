@@ -1,0 +1,100 @@
+{
+  "name": "renderflow",
+  "displayName": "Render Flow",
+  "description": "Real-time visual telemetry: map app interactions to source code with gutter indicators and activity feed.",
+  "version": "0.1.0",
+  "publisher": "renderflow",
+  "author": {
+    "name": "Gobinda Nandi",
+    "email": "gobinda.nandi.public@gmail.com",
+    "url": "https://inandi.github.io/portfolio/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/inandi/RenderFlow.git"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Debuggers"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "renderflow.start",
+        "title": "Render Flow: Start"
+      },
+      {
+        "command": "renderflow.stop",
+        "title": "Render Flow: Stop"
+      },
+      {
+        "command": "renderflow.clearFeed",
+        "title": "Render Flow: Clear Activity Feed"
+      },
+      {
+        "command": "renderflow.openAtEvent",
+        "title": "Open at event location"
+      }
+    ],
+    "configuration": {
+      "title": "Render Flow",
+      "properties": {
+        "renderflow.port": {
+          "type": "number",
+          "default": 8765,
+          "description": "WebSocket port for the Render Flow server (localhost only)."
+        },
+        "renderflow.activityFeedMaxItems": {
+          "type": "number",
+          "default": 100,
+          "description": "Maximum number of items to show in the Activity Feed."
+        },
+        "renderflow.gutterFlashDurationMs": {
+          "type": "number",
+          "default": 1500,
+          "description": "How long the gutter indicator stays visible (ms)."
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "renderflow",
+          "title": "Render Flow",
+          "icon": "$(pulse)"
+        }
+      ]
+    },
+    "views": {
+      "renderflow": [
+        {
+          "id": "renderflow.activityFeed",
+          "name": "Activity Feed"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.85.0",
+    "@types/ws": "^8.5.10",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "ws": "^8.16.0"
+  }
+}
