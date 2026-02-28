@@ -1,13 +1,8 @@
 import * as path from 'path';
 import * as vscode from 'vscode';
+import type { RenderEvent } from './handlers/types';
 
-export interface RenderEvent {
-  filePath: string;
-  line: number;
-  column?: number;
-  functionName?: string;
-  kind?: string;
-}
+export type { RenderEvent } from './handlers/types';
 
 const activityFeedEvents: RenderEvent[] = [];
 
@@ -36,13 +31,14 @@ class FeedItem extends vscode.TreeItem {
       ? `${path.basename(event.filePath)}:${event.line} — ${event.functionName}`
       : `${path.basename(event.filePath)}:${event.line}`;
     super(label, vscode.TreeItemCollapsibleState.None);
-    this.tooltip = `${event.filePath}:${event.line}`;
+    this.tooltip = event.framework ? `[${event.framework}] ${event.filePath}:${event.line}` : `${event.filePath}:${event.line}`;
     this.command = {
       command: 'renderflow.openAtEvent',
       title: 'Open',
       arguments: [event],
     };
-    this.iconPath = new vscode.ThemeIcon('pulse');
+    const icon = event.framework === 'php' ? 'file-code' : event.framework === 'javascript' ? 'symbol-misc' : 'pulse';
+    this.iconPath = new vscode.ThemeIcon(icon);
   }
 }
 

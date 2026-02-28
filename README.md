@@ -9,6 +9,8 @@ A **VS Code extension** that gives you **real-time visual telemetry** for your f
 - **Live mapping:** When your app runs, the lines that fired show a short gutter highlight in VS Code.
 - **Activity Feed:** A sidebar lists the sequence of recent events (file:line and function name). Click an entry to jump to that location.
 - **React support:** Use the `renderflow-sdk` in your React app to send events; the extension shows them instantly.
+- **PHP support:** Use the `renderflow-php` client in your PHP app to send events; same Activity Feed and gutter.
+- **JavaScript support:** Vanilla JS or Node can send events with `framework: 'javascript'` (or use `.mjs`/`.cjs`); React apps use `renderflow-sdk` and are handled as React.
 
 ---
 
@@ -34,6 +36,8 @@ A **VS Code extension** that gives you **real-time visual telemetry** for your f
 
 3. **Optional:** Use the **useRenderFlow()** hook to report on each component render, or **reportRender()** for manual events.
 
+**PHP:** Copy or require `packages/renderflow-php/src/RenderFlowClient.php`, then call `$client->sendEvent(['filePath' => '...', 'line' => 42, 'functionName' => '...', 'framework' => 'php'])`. See [packages/renderflow-php/README.md](packages/renderflow-php/README.md).
+
 See **[doc/RUN_AND_TEST.md](doc/RUN_AND_TEST.md)** for step-by-step run and test instructions, and **[doc/DEVELOPMENT.md](doc/DEVELOPMENT.md)** for the full SDK API and integration details.
 
 ---
@@ -43,8 +47,10 @@ See **[doc/RUN_AND_TEST.md](doc/RUN_AND_TEST.md)** for step-by-step run and test
 | Path | Description |
 |------|-------------|
 | **Root** | VS Code extension (TypeScript in `src/`, run with F5). |
-| **packages/renderflow-sdk** | npm package: `connect`, `sendEvent`, `useRenderFlow`, `reportRender`. |
+| **packages/renderflow-sdk** | npm package: `connect`, `sendEvent`, `useRenderFlow`, `reportRender` (React). |
+| **packages/renderflow-php** | PHP client: `RenderFlowClient::sendEvent()` for PHP codebases. |
 | **examples/sample-react** | Minimal React + Vite app that uses the SDK. |
+| **examples/sample-php** | Minimal PHP script that sends an event. |
 | **doc/** | [ARCHITECTURE.md](doc/ARCHITECTURE.md), [PROTOCOL.md](doc/PROTOCOL.md), [DEVELOPMENT.md](doc/DEVELOPMENT.md), [RUN_AND_TEST.md](doc/RUN_AND_TEST.md). |
 
 ---

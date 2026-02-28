@@ -6,11 +6,13 @@ import {
   resolveFileUri,
   type RenderEvent,
 } from './activityFeed';
+import { EventDispatcher } from './handlers';
 
 type WsServer = InstanceType<typeof import('ws')['WebSocketServer']>;
 let wsServer: WsServer | undefined;
 let decorationType: vscode.TextEditorDecorationType | undefined;
 let activityFeedProvider: ActivityFeedTreeProvider | undefined;
+const eventDispatcher = new EventDispatcher();
 
 export function activate(context: vscode.ExtensionContext): void {
   activityFeedProvider = new ActivityFeedTreeProvider();
@@ -73,7 +75,8 @@ function handleConnection(socket: import('ws').WebSocket): void {
     try {
       const payload = JSON.parse(data.toString());
       if (payload.filePath != null && typeof payload.line === 'number') {
-        handleRenderEvent(payload as RenderEvent);
+        const normalized = eventDispatcher.dispatch(payload);
+        handleRenderEvent(normalized);
       }
     } catch {
       // ignore invalid JSON

@@ -2,8 +2,9 @@
   "name": "renderflow",
   "displayName": "Render Flow",
   "description": "Real-time visual telemetry: map app interactions to source code with gutter indicators and activity feed.",
-  "version": "0.1.0",
-  "publisher": "renderflow",
+  "version": "1.1.1",
+  "publisher": "iNandi",
+  "icon": "media/logo.png",
   "author": {
     "name": "Gobinda Nandi",
     "email": "gobinda.nandi.public@gmail.com",
