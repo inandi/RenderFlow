@@ -30,6 +30,16 @@ package-lock.json
 .gitignore
 .gitattributes
 
-# Node modules (should already be excluded, but explicit)
+# Node modules
+node_modules
 node_modules/**
+out/**
 
+# Examples and packages (monorepo; not part of extension bundle)
+examples/sample-react/dist
+examples/sample-react/node_modules
+examples/sample-php/vendor
+examples/sample-php/node_modules
+
+packages/renderflow-sdk/dist
+packages/renderflow-sdk/node_modules

@@ -34,9 +34,10 @@ Sent by the SDK when a render or state update occurs (e.g. from `sendEvent()` or
 | `line`         | number | Yes      | 1-based line number. |
 | `column`       | number | No       | 0-based column (optional). |
 | `functionName`  | string | No       | Human-readable label (e.g. component or function name). |
-| `kind`         | string | No       | e.g. `"render"`, `"mount"`, `"update"`. |
+| `kind`         | string | No       | e.g. `"render"`, `"mount"`, `"update"`, `"call"`. |
+| `framework`    | string | No       | `"react"`, `"php"`, or `"javascript"` (or `"js"`). Used for language-specific handling and icons. If omitted, inferred from file extension (e.g. `.php` → php, `.jsx`/`.tsx` → react, `.mjs`/`.cjs` → javascript). |
 
-The extension uses `filePath` and `line` to resolve the workspace file and show the gutter flash and activity feed entry. Other fields are for display and future filtering.
+The extension uses `filePath` and `line` to resolve the workspace file and show the gutter flash and activity feed entry. Other fields are for display and future filtering. React, PHP, and vanilla JavaScript/Node can send events; the extension dispatches to the appropriate handler by framework or file extension.
 
 ## Reconnection
 

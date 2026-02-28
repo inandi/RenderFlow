@@ -1,0 +1,14 @@
+{
+  "name": "renderflow/renderflow-php",
+  "description": "Send events from PHP to the Render Flow VS Code extension",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "RenderFlow\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.4"
+  }
+}

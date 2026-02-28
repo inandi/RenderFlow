@@ -33,19 +33,29 @@ You should see no errors and an `out/` folder with compiled JS.
 7. You should see a message: **“Render Flow listening on port 8765.”**
 8. In the Activity Bar (left side), click the **pulse icon** (Render Flow). Expand **Activity Feed**. It may be empty until the app sends events.
 
+**Important:** Start the extension *before* opening the sample app in the browser, so the WebSocket connects. If you opened the app first, use the **Reconnect** button in the sample app after starting the extension.
+
 ---
 
 ## 3. Run the sample React app
 
-In a **terminal** (outside the Extension Development Host):
+In a **terminal** (outside the Extension Development Host), either:
 
+**From repo root:**
+```bash
+npm run sample
+```
+
+**Or from the sample app folder:**
 ```bash
 cd examples/sample-react
 npm install
 npm run dev
 ```
 
-Open **http://localhost:5173** in your browser. You should see a page with a “Count” and an “Increment” button.
+The SDK builds automatically on `npm install` (via its `prepare` script). If you changed the SDK source, run `cd packages/renderflow-sdk && npm run build` first.
+
+Open **http://localhost:5173** in your browser. You should see a page with a “Count” and an “Increment” button. If port 5173 is in use, Vite will try the next available port and print it in the terminal.
 
 ---
 
@@ -80,8 +90,10 @@ If both the feed and the gutter update when you interact with the sample app, th
 | Problem | What to check |
 |--------|----------------|
 | No “Render Flow listening” message | Run “Render Flow: Start” in the **Extension Development Host** window (not the main VS Code window). |
-| Activity Feed stays empty when clicking the button | Ensure the **Extension Development Host** has the **RenderFlow repo folder** open (not a different project). Ensure the sample app is running and you opened http://localhost:5173. Check the browser console (F12) for WebSocket errors. |
+| Activity Feed stays empty when clicking the button | 1) Run **"Render Flow: Start"** in the Extension Development Host (Command Palette). 2) In the sample app, check the status—if it says **Disconnected**, click **Reconnect**. 3) Ensure the Extension Development Host has the **RenderFlow repo folder** open. 4) Click Increment again. |
 | Gutter doesn’t flash | Open `examples/sample-react/src/App.jsx` in the Extension Development Host. The extension only decorates visible editors for the event’s file. |
+| Empty white screen | Open DevTools (F12) → Console for errors. Run `cd examples/sample-react && npm install && npm run build && npx vite preview` to test the production build. Hard refresh (Ctrl+Shift+R). |
 | Port already in use | Change `renderflow.port` in VS Code settings and use the same port in `connect(port)` in the sample app’s `main.jsx`. |
+| localhost not starting | Run `npm run sample` from the repo root (not `npm run dev`—that starts the extension watch). Or `cd examples/sample-react && npm run dev`. Ensure port 5173 is free; Vite will try the next port if it’s taken. |
 
 For more detail (SDK API, using in your own app, adding views), see [DEVELOPMENT.md](DEVELOPMENT.md).
