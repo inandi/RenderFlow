@@ -1,3 +1,14 @@
+/**
+ * React Event Handler
+ *
+ * Handles events for React apps (.jsx, .tsx, .js, .ts or framework: 'react').
+ *
+ * @author Gobinda Nandi <gobinda.nandi.public@gmail.com>
+ * @since 1.1.1 [28-02-2026]
+ * @version 1.1.1
+ * @copyright (c) 2026 Gobinda Nandi
+ */
+
 import * as path from 'path';
 import type { IEventHandler } from './IEventHandler';
 import type { IncomingEvent, RenderEvent } from './types';
