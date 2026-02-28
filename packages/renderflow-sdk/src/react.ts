@@ -4,7 +4,7 @@
  */
 
 import { useEffect, useRef } from 'react';
-import { sendEvent, type RenderFlowEvent } from './index';
+import { sendEvent, type RenderFlowEvent } from './core';
 
 const REACT_STACK_REGEX = /at (\w+)?\s*\(?\s*(\S+):(\d+):(\d+)/;
 

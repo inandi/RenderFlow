@@ -84,8 +84,10 @@
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
+    "dev": "tsc -watch -p ./",
     "watch": "tsc -watch -p ./",
-    "lint": "eslint src --ext ts"
+    "lint": "eslint src --ext ts",
+    "sample": "cd examples/sample-react && npm install && npm run dev"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",
