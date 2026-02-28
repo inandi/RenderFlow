@@ -1,10 +1,14 @@
 ## New Features
 
-- VS Code extension with WebSocket server (default port 8765, localhost only)
-- Activity Feed sidebar listing recent render events (file:line and function name); click to open location
-- Gutter line flash when events are received (configurable duration)
-- `renderflow-sdk` npm package: `connect()`, `sendEvent()`, `useRenderFlow()`, `reportRender()`
-- React support via SDK; optional `useRenderFlow()` hook for automatic render reporting
-- Sample React + Vite app demonstrating the integration
-- Configuration: `renderflow.port`, `renderflow.activityFeedMaxItems`, `renderflow.gutterFlashDurationMs`
-- Commands: Render Flow: Start, Stop, Clear Activity Feed
+- PHP support: per-language event handlers; `packages/renderflow-php` client (`RenderFlowClient::sendEvent()`); Activity Feed and gutter for PHP (`.php` or `framework: 'php'`).
+- JavaScript support: vanilla JS / Node events via `framework: 'javascript'` or `'js'`, or `.mjs`/`.cjs`; dedicated handler and icon in Activity Feed.
+- Per-language handlers (React, PHP, JavaScript) in separate TypeScript files; `EventDispatcher` routes by framework or file extension.
+- Sample PHP script: `examples/sample-php/example.php` sending an event to the extension.
+- Extension icon: `media/logo.png`; publisher set to iNandi.
+- Sample React app: connection status (Connected/Disconnected) and Reconnect button.
+
+## Improvements
+
+- README and documentation updated for PHP client, JavaScript support, and repo layout.
+- Protocol doc updated with `framework` field and inference rules for React, PHP, and JavaScript.
+- Release notes and package.json aligned with reference (icon, publisher).
