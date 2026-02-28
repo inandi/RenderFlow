@@ -1,4 +1,4 @@
-# Render Flow
+# Render Flow [Beta]
 
 A **VS Code extension** that gives you **real-time visual telemetry** for your frontend app: as you interact with the UI, the corresponding code in VS Code lights up and appears in an Activity Feed.
 
@@ -81,6 +81,14 @@ Render Flow addresses the "black box" in frontend development: you click, the UI
 - **Planned:** Filtering and throttling, heatmaps, Vue/Angular SDKs, optional manual instrumentation (e.g. `// renderflow:watch`).
 
 See **[doc/PLAN.md](doc/PLAN.md)** for the full implementation plan.
+
+
+## Support the Project
+
+If Render Flow has made your workflow easier, consider supporting (No Pressure):
+
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/igobinda)
+
 
 ---
 

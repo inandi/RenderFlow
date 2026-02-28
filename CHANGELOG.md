@@ -1,27 +1,6 @@
 # Release v1.1.2 - 2026-02-28
 
 ## New Features
-- NA
-
-## Improvements
-- NA
-
-## Bug Fixes
-- NA
-
-## Deprecated Features
-- NA
-
-## Known Issues
-- NA
-
-## Acknowledgments
-- NA
----
-
-# Release v1.1.1 - 2026-02-28
-
-## New Features
 
 - PHP support: per-language event handlers; `packages/renderflow-php` client (`RenderFlowClient::sendEvent()`); Activity Feed and gutter for PHP (`.php` or `framework: 'php'`).
 - JavaScript support: vanilla JS / Node events via `framework: 'javascript'` or `'js'`, or `.mjs`/`.cjs`; dedicated handler and icon in Activity Feed.
@@ -37,4 +16,3 @@
 - Release notes and package.json aligned with reference (icon, publisher).
 
 ---
-
