@@ -1,3 +1,15 @@
+# Release v2.1.1 - 2026-04-07
+
+## New Features
+- Release workflow now supports publishing to both Visual Studio Marketplace and Open VSX Registry.
+
+## Improvements
+- Release script now validates the release version against `package.json` before publishing.
+- Publishing flow includes stronger handling for missing `.publish-secrets` tokens and clearer warning messages.
+- Extension metadata updated to include preview release mode in `package.json`, with lockfile metadata kept in sync.
+
+---
+
 # Release v1.1.3 - 2026-02-28
 
 ## Improvements
